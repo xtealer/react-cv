@@ -1,12 +1,13 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // imported views
 import HomeView from "./views/HomeView";
 import NotFoundView from "./views/NotFoundView";
 
-// comment
-const App = () => {
+interface IProps {}
+
+const App: FunctionComponent<IProps> = (props) => {
   return (
     <Router>
       <Switch>
