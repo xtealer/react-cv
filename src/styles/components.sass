@@ -1,3 +1,11 @@
+%title_style
+	text-transform: uppercase
+	font-weight: bold
+	text-align: left
+
+%description_style
+	text-transform: uppercase
+	text-align: left
 
 .home-component
 	height: 100%
@@ -7,14 +15,16 @@
 	.content
 		flex: 1 1 auto
 		margin: 0 50px
-		border-left: 1px solid #000
-		border-right: 1px solid #000
+		border-left: 2px solid #000
+		border-right: 2px solid #000
+		overflow-y: auto
 		text-align: center
 
 		.profile
 			display: inline-flex
 			justify-content: center
 			width: 100%
+			padding: 15px
 
 			> div
 				max-width: 300px
@@ -30,7 +40,7 @@
 				height: auto
 
 		.description
-			border-top: 1px solid #000
+			border-top: 2px solid #000
 			margin-top: 25px
 			padding: 20px
 			text-align: justify
@@ -54,3 +64,65 @@
 		font-weight: bold
 		text-transform: uppercase
 		margin-bottom: 0
+
+.card-component
+	display: flex
+	flex-direction: column
+	border: 2px solid #000
+	max-height: 300px
+	min-height: 190px
+	flex: 1 1 300px
+
+	min-width: 175px
+	padding: 20px
+	margin-left: -2px
+	margin-right: -2px
+	margin-top: -2px
+
+	h1
+		@extend %title_style
+		line-height: 1.5rem
+
+	p
+		@extend %description_style
+		line-height: 1.2rem
+
+	ul
+		text-align: left
+		padding-left: 25px
+		margin-bottom: 0
+		margin-top: 15px
+
+.contact-form-component
+	border-top: 2px solid #000
+	padding: 40px 15px
+	text-align: left
+	margin-top: -2px
+
+	> .ant-form
+		max-width: 300px
+		margin-left: auto
+		margin-right: auto
+
+		> .ant-input
+			&:nth-child(2)
+				margin-top: 30px !important
+
+	h1
+		@extend %title_style
+
+	.ant-input
+		border: 2px solid #000
+		margin-top: 10px
+		border-radius: 0
+
+	.ant-btn
+		border: 2px solid #000
+		background-color: #fff
+		text-transform: uppercase
+		font-weight: bold
+		border-radius: 0
+		margin-top: 10px
+
+		&:hover
+			color: #000

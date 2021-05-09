@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import CardComponent from "../components/CardComponent";
+import ContactFormComponent from "../components/ContactFormComponent";
 import FooterComponent from "../components/FooterComponent";
 import NavbarComponent from "../components/NavbarComponent";
 
@@ -13,7 +15,6 @@ const HomeView: FunctionComponent<IProps> = () => {
       <NavbarComponent />
 
       <div className="content">
-        {/* row 1 */}
         <div className="profile">
           <div>
             <img
@@ -28,7 +29,6 @@ const HomeView: FunctionComponent<IProps> = () => {
           </div>
         </div>
 
-        {/* row 2 */}
         <div className="description">
           <h1>INTRO</h1>
           <p>
@@ -39,6 +39,35 @@ const HomeView: FunctionComponent<IProps> = () => {
             Phasellus maximus id lacus in mattis.
           </p>
         </div>
+
+        <div className="row-boxes">
+          <CardComponent title="VALUES" subTitle="Must Have @ Work">
+            <li>Respect</li>
+            <li>Adaptability</li>
+            <li>Humble</li>
+            <li>Help Others</li>
+          </CardComponent>
+
+          <CardComponent title="SKILLS" subTitle="Complements 2 Have">
+            <li>Teamwork</li>
+            <li>Have Fun</li>
+            <li>Act Pro</li>
+            <li>Be More</li>
+          </CardComponent>
+
+          <CardComponent title="Follow Me">
+            <li>twitter: @xtealer00</li>
+            <li>instagram: @xtealer</li>
+            <li>github: https://github.com/xtealer</li>
+          </CardComponent>
+
+          <CardComponent title="Contact">
+            <li>+507 6997-4711</li>
+            <li>xtealer00@gmail.com</li>
+          </CardComponent>
+        </div>
+
+        <ContactFormComponent />
       </div>
 
       <FooterComponent />
