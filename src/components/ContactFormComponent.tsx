@@ -1,5 +1,4 @@
 import { Button, Form, Input } from "antd";
-import { useForm } from "antd/lib/form/Form";
 import React, { FunctionComponent } from "react";
 import { useCallback } from "react";
 
@@ -13,7 +12,7 @@ const ContactFormComponent: FunctionComponent<IProps> = (props) => {
   }, []);
 
   return (
-    <div className="contact-form-component">
+    <div id="contact" className="contact-form-component">
       <Form form={formRef} onFinish={onFinish} layout="vertical">
         <h1>Get In Touch</h1>
 
