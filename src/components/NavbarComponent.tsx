@@ -1,28 +1,30 @@
 import React from "react";
 import { Menu } from "antd";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useCallback } from "react";
-import { useEffect } from "react";
 
 const NavbarComponent = () => {
-  const match = useRouteMatch();
+  const location = useLocation();
+  const history = useHistory();
 
   const scrollToContactForm = useCallback(() => {
-    const contactFormRef = document.getElementById("contact");
+    new Promise((resolve) => {
+      if (location.pathname !== "/") {
+        history.replace("/");
+      }
 
-    contactFormRef?.scrollIntoView();
+      resolve(null);
+    }).then(() => {
+      document.getElementById("contact")?.scrollIntoView();
+    });
   }, []);
 
-  useEffect(() => {
-    console.log(match);
-  }, [match]);
-
   return (
-    <Menu theme="dark" selectedKeys={[match.path]} mode="horizontal">
+    <Menu theme="dark" selectedKeys={[location.pathname]} mode="horizontal">
       <Menu.Item key="/">
         <Link to="/">Home</Link>
       </Menu.Item>
-      <Menu.Item key="#contact" onClick={scrollToContactForm}>
+      <Menu.Item key="/#contact" onClick={scrollToContactForm}>
         Contact
       </Menu.Item>
       <Menu.Item key="/login">

@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from "react";
-import { useCallback } from "react";
+import React, { FunctionComponent, useCallback } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { UpCircleOutlined } from "@ant-design/icons";
 import { BackTop } from "antd";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // imported views
 import NotFoundView from "./views/NotFoundView";
@@ -22,17 +21,9 @@ const App: FunctionComponent<IProps> = (props) => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <HomeView />
-          </Route>
-
-          <Route path="/">
-            <LoginView />
-          </Route>
-
-          <Route path="/">
-            <NotFoundView />
-          </Route>
+          <Route exact path="/" component={HomeView} />
+          <Route path="/" component={LoginView} />
+          <Route path="/" component={NotFoundView} />
         </Switch>
       </Router>
 

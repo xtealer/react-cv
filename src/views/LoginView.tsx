@@ -1,17 +1,16 @@
-import Button from "antd/lib/button";
+import React, { FunctionComponent, useCallback } from "react";
+import { useHistory } from "react-router";
 import Checkbox from "antd/lib/checkbox";
-import Form from "antd/lib/form";
+import message from "antd/lib/message";
+import Button from "antd/lib/button";
 import Input from "antd/lib/input";
-import React from "react";
-import { FunctionComponent } from "react";
+import Form from "antd/lib/form";
 import firebase from "firebase/app";
 import "firebase/auth";
-import { ILoginForm } from "../types/AuthTypes";
-import { message } from "antd";
-import { useCallback } from "react";
-import { useHistory } from "react-router";
-import NavbarComponent from "../components/NavbarComponent";
+
 import FooterComponent from "../components/FooterComponent";
+import NavbarComponent from "../components/NavbarComponent";
+import { ILoginForm } from "../types/AuthTypes";
 
 interface IProps {}
 
