@@ -2,8 +2,13 @@ import "./styles/index.sass";
 
 import React from "react";
 import ReactDOM from "react-dom";
+import firebase from "firebase/app";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { firebaseConfig } from "./prod.env";
+
+firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>

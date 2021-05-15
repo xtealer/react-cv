@@ -5,9 +5,9 @@ import { BackTop } from "antd";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // imported views
-import HomeView from "./views/HomeView";
 import NotFoundView from "./views/NotFoundView";
-import { useState } from "react";
+import HomeView from "./views/HomeView";
+import LoginView from "./views/LoginView";
 
 interface IProps {}
 
@@ -24,6 +24,10 @@ const App: FunctionComponent<IProps> = (props) => {
         <Switch>
           <Route exact path="/">
             <HomeView />
+          </Route>
+
+          <Route path="/">
+            <LoginView />
           </Route>
 
           <Route path="/">

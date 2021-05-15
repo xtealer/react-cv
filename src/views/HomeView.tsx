@@ -1,8 +1,16 @@
 import React, { FunctionComponent } from "react";
+import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
+import { Button, message, Upload } from "antd";
+import { useCallback } from "react";
+import firebase from "firebase/app";
+import "firebase/auth";
+
 import CardComponent from "../components/CardComponent";
 import ContactFormComponent from "../components/ContactFormComponent";
 import FooterComponent from "../components/FooterComponent";
 import NavbarComponent from "../components/NavbarComponent";
+import { useEffect } from "react";
+import { useState } from "react";
 
 interface IProps {}
 
@@ -10,6 +18,20 @@ const NAME: string = "ENRIQUE SHUNNAR";
 const POSITION: string = "Fullstack Developer";
 
 const HomeView: FunctionComponent<IProps> = () => {
+  const [user, setUser] = useState<firebase.User | null>(null);
+
+  const onUploadRequestOverride = useCallback((e) => e?.onSuccess?.("ok"), []);
+
+  useEffect(() => {
+    const auth = firebase.auth();
+
+    const unsubscribe = auth.onAuthStateChanged((e) => {
+      setUser(e);
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
     <div className="home-component">
       <NavbarComponent />
@@ -24,6 +46,14 @@ const HomeView: FunctionComponent<IProps> = () => {
               height="auto"
             />
 
+            {!!user && (
+              <div className="upload-wrapper">
+                <Upload customRequest={onUploadRequestOverride}>
+                  <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                </Upload>
+              </div>
+            )}
+
             <h1>{NAME}</h1>
             <p>{POSITION}</p>
           </div>
@@ -31,13 +61,7 @@ const HomeView: FunctionComponent<IProps> = () => {
 
         <div className="description">
           <h1>INTRO</h1>
-          <p>
-            Proin in erat malesuada, auctor leo id, volutpat libero. In
-            consequat, ex ac tristique aliquet, purus neque maximus est, vel
-            aliquam eros ex at lorem. Cras elit sapien, mollis sit amet rhoncus
-            in, mollis ac nunc. Pellentesque iaculis est non commodo aliquet.
-            Phasellus maximus id lacus in mattis.
-          </p>
+          <p>My simple description.</p>
         </div>
 
         <div className="row-boxes">
