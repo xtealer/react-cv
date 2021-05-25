@@ -1,14 +1,25 @@
-import { Button, Form, Input } from "antd";
-import React, { FunctionComponent } from "react";
-import { useCallback } from "react";
+import { Button, Form, Input, message } from "antd";
+import axios from "axios";
+import React, { FunctionComponent, useCallback } from "react";
+import { ContactRequestProps } from "../types/IEmail";
 
 interface IProps {}
 
 const ContactFormComponent: FunctionComponent<IProps> = (props) => {
   const [formRef] = Form.useForm();
 
-  const onFinish = useCallback((values) => {
-    console.log(values);
+  const onFinish = useCallback(async (values: ContactRequestProps) => {
+    try {
+      const response = await axios.post(
+        "https://us-central1-react-cv-b16cf.cloudfunctions.net/contactRequest",
+        values ?? {}
+      );
+
+      message.success("your message has been received.");
+    } catch (err) {
+      message.error("something has failed.");
+      console.log(err);
+    }
   }, []);
 
   return (
