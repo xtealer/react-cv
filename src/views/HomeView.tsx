@@ -8,6 +8,7 @@ import ContactFormComponent from "../components/ContactFormComponent";
 import FooterComponent from "../components/FooterComponent";
 import NavbarComponent from "../components/NavbarComponent";
 import useCurrentUserHook from "../hooks/useCurrentUserHook";
+import PROFILE from "./assets/images/me.jpg";
 
 interface IProps {}
 
@@ -26,12 +27,7 @@ const HomeView: FunctionComponent<IProps> = () => {
       <div className="content">
         <div className="profile">
           <div>
-            <img
-              src="./assets/images/me.jpg"
-              alt="profile"
-              width="auto"
-              height="auto"
-            />
+            <img src={PROFILE} alt="profile" width="auto" height="auto" />
 
             {!!user && (
               <div className="upload-wrapper">
