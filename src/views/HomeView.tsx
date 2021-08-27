@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import { Button, message, Upload } from "antd";
+import { Button, Upload } from "antd";
 import { useCallback } from "react";
 
 import CardComponent from "../components/CardComponent";
@@ -27,7 +27,7 @@ const HomeView: FunctionComponent<IProps> = () => {
         <div className="profile">
           <div>
             <img
-              src="assets/images/me.jpg"
+              src="./assets/images/me.jpg"
               alt="profile"
               width="auto"
               height="auto"
