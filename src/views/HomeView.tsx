@@ -8,7 +8,7 @@ import ContactFormComponent from "../components/ContactFormComponent";
 import FooterComponent from "../components/FooterComponent";
 import NavbarComponent from "../components/NavbarComponent";
 import useCurrentUserHook from "../hooks/useCurrentUserHook";
-import PROFILE from "./assets/images/me.jpg";
+import PROFILE from "../assets/images/me.jpg";
 
 interface IProps {}
 
